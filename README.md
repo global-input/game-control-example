@@ -9,7 +9,7 @@ npm i @bit/globalinput.web.global-input-connect
 Finally, the generated ```App.js``` is modified to implement the game logic and the mobile logic for controlling the game. The [src/App.js](https://github.com/global-input/game-control-example/blob/master/src/App.js) contains all the logic.
 
 
-Lastly run the app in the development mode using 'npm run' or 'yarn' command:<br>
+You can run the application using ```npm run start``` or ```yarn start``` command:<br>
 ```
 npm run start
 ```
