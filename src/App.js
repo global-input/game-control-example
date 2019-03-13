@@ -255,7 +255,7 @@ class App extends Component {
                             this.mobile.globalInputConnect.changeInitData(initData);
                     }
               },
-              uiForGameControl:videoSelection=>{
+              uiForGameControl:()=>{
 
                     var initData={
                             action:"input",
