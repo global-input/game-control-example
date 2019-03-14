@@ -18,6 +18,7 @@ class App extends Component {
 
 
 
+
       constructor(props){
           super(props);
           this.state={connected:false};
@@ -55,17 +56,20 @@ class App extends Component {
           <div style={styles.githuburl}>
               <a href={textContent.githuburl} target="_blank">{textContent.githuburl}</a>
           </div>
-          <canvas style={styles.canvas} width={width}
-            height={height} ref={canvas=>this.canvas=canvas}/>
+          <div style={styles.content}>
 
-          <div style={barcodeContainerStyle}>
-              <div style={styles.barcode}>
-                    <GlobalInputConnect mobileConfig={this.mobile.config}
-                      ref={globalInputConnect =>this.mobile.globalInputConnect=globalInputConnect}
-                      connectingMessage="Connecting...."
-                      connectedMessage="Scan with Global Input App"
-                      reconnectOnDisconnect={true}/>
-              </div>
+                  <canvas style={styles.canvas} width={width}
+                    height={height} ref={canvas=>this.canvas=canvas}/>
+
+                  <div style={barcodeContainerStyle}>
+                      <div style={styles.barcode}>
+                            <GlobalInputConnect mobileConfig={this.mobile.config}
+                              ref={globalInputConnect =>this.mobile.globalInputConnect=globalInputConnect}
+                              connectingMessage="Connecting...."
+                              connectedMessage="Scan with Global Input App"
+                              reconnectOnDisconnect={true}/>
+                      </div>
+                    </div>
             </div>
         </div>
 
@@ -133,10 +137,15 @@ class App extends Component {
 
 
       clearGame() {
-           this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            if(this.canvas){
+                this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+
       }
        updateGameArea() {
-
+         if(!this.canvas){
+           return;
+         }
         var x, height, gap, minHeight, maxHeight, minGap, maxGap;
         for (var i = 0; i < this.myObstacles.length; i += 1) {
             if (this.myGamePiece.crashWith(this.myObstacles[i])) {
