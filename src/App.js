@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GlobalInputConnect from '@bit/globalinput.web.global-input-connect';
+import {GlobalInputConnect} from 'global-input-react';
 
 import {styles} from "./styles";
 
@@ -218,7 +218,7 @@ class App extends Component {
       }
       }
 
-      /****************************All the Mobile UI interfaces are defined below ***********/
+      /****************************Mobile Integration Logic ***********/
 
         mobile={
               globalInputConnect:null,
