@@ -9,7 +9,7 @@ export const styles={
     },
     content:{
         position:"relative",
-
+        
     },
     title:{
       display:"flex",
