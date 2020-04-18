@@ -1,11 +1,13 @@
 ## Mobile Control Example
-This example application demonstrates how you can use the [the ReactJS library](https://github.com/global-input/global-input-react) to implement mobile integration to allow users to use mobile to control applications running on other devices.
+This example application demonstrates how you can use the [Global Input App library](https://github.com/global-input/global-input-react) to implement the [mobile control](https://globalinput.co.uk/global-input-app/mobile-input-control) feature in a React.js application to allow your users operate on your device application using their mobile devices.
 
 ### How to Run
-Upon downloading the source code run:
+
 ```
+   git clone https://github.com/global-input/game-control-example.git
+   cd game-control-example
    npm install
-   yarn start
+   npm start
 ```
-You may also try the [running instance of this application](https://globalinput.co.uk/global-input-app/game-example). 
+A running instance of the application is [here](https://globalinput.co.uk/global-input-app/game-example). 
    
