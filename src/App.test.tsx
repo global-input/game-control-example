@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './app/GameApp';
+import App from './app';
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
@@ -14,8 +14,8 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn(),
   })),
 });
-test('Global Input App', () => {
+test('render app', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Global Input App/i);
+  const linkElement = screen.getByText(/Global Input App Mobile Control Example/i);
   expect(linkElement).toBeInTheDocument();
 });
