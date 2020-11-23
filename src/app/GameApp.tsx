@@ -194,15 +194,7 @@ const initData = {
     id: 'game-controller',
     form: {
         title: "Mobile Control Example",
-
-        fields: Object.values(FIELDS)
-    }
-};
-
-
-export default GameApp;
-/*
-views: {
+        views: {
             viewIds: {
                 footer: {
                     style: {
@@ -212,4 +204,9 @@ views: {
                 }
             }
         },
-*/
+        fields: Object.values(FIELDS)
+    }
+};
+
+
+export default GameApp;
