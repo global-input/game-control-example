@@ -1,4 +1,4 @@
-
+import {useState} from 'react';
 //+//import { useHistory } from 'react-router-dom'; ////website
 import { useMobile, ConnectWindow, ConnectButton } from '../mobile';
 
@@ -11,8 +11,12 @@ const FIELDS = {
     status: {
         id: "gameStatus",
         type: "info",
-        value: null,
-
+        value: " ",
+    },
+    score: {
+        id: "score",
+        type: "info",
+        value: " ",
     },
     up: {
         id: "upButton",
@@ -28,18 +32,7 @@ const FIELDS = {
         viewId: "row2",
         operations: { onInput: game.onLeftButtonPressed }
     },
-    info: {
-        id: "infoField",
-        type: "info",
-        value: {
-            type: "view",
-            style: {
-                minWidth: 36,
-                minHeight: 36
-            },
-        },
-        viewId: "row2"
-    },
+
     right: {
         id: "rightButton",
         type: "button",
@@ -93,7 +86,7 @@ const FIELDS = {
         id: "startPauseButton",
         type: "button",
         value: 0,
-        label: "Start",
+        label: "row5",
         options: [{ value: 0, label: "Start", icon: "play" },
         { value: 1, label: "Pause", icon: "pause" },
         { value: 2, label: "Resume", icon: "play" }],
@@ -120,13 +113,25 @@ const initData = {
                 row2: {
                     style: {
                         justifyContent: "space-between",
+
                         width: "100%",
+                        maxWidth:300,
+
                     }
 
                 },
-                footer: {
+                row4:{
                     style: {
                         justifyContent: "space-between",
+
+                        width: "100%",
+                        maxWidth:300,
+
+                    }
+                },
+                row5: {
+                    style: {
+                        justifyContent: "center",
                         width: "100%",
                     }
                 }
@@ -140,6 +145,7 @@ const initData = {
 export const useConnectMobile =() => {
     //+//const history = useHistory();////website
     const mobile = useMobile(initData, true);
+    const [score,setScore]=useState(0);
 
     //+//mobile.setOnchange(({field}) => {////website
     //+//mobileUI.onFieldChange(field, history); ////website
@@ -180,11 +186,16 @@ export const useConnectMobile =() => {
     const onSpeedChanges = (moveSpeed: number) => {
             setMoveSpeed(moveSpeed);
     };
+    const onFrameNo=(fameNo)=>{
+        setScore(fameNo);
+        mobile.sendValue(FIELDS.score.id,`Score:${fameNo}`);
+    }
     const listeners = {
             onGameRunning,
             onGameStopped,
             onGamePaused,
-            onSpeedChanges
+            onSpeedChanges,
+            onFrameNo
     };
     return {mobile,listeners};
 }
